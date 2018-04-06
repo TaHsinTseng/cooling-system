@@ -1,10 +1,10 @@
 # Getting everything set up
 1. ### Set up the Pi
-..* Plug in the micro-usb to the Pi for power
-..* Plug in the display
-..* Connect the mouse and keyboard to the Pi
-..* Connect the wifi dongle that is in the Pi's case
-..* Connect the Pi to the display with the HDMI cable
+* Plug in the micro-usb to the Pi for power
+* Plug in the display
+* Connect the mouse and keyboard to the Pi
+* Connect the wifi dongle that is in the Pi's case
+* Connect the Pi to the display with the HDMI cable
 
 2. ### Running the code
 The code can be found in the "cooling-system" folder on the desktop of the Pi. 
