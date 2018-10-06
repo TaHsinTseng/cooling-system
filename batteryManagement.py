@@ -7,7 +7,7 @@ import random
 fansOn = False
 pastMax = True
 maxTemp = 85
-safeTemp = maxTemp-10
+safeTemp = maxTemp - 10
 averageTemp = 0
 minRandTemp = 75
 randomRange = 15
@@ -25,7 +25,7 @@ mode = GPIO.getmode()
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(True)
-GPIO.setup(outputPin,GPIO.OUT)
+GPIO.setup(outputPin, GPIO.OUT)
 
 
 
@@ -34,22 +34,22 @@ while True:
 	# Generate 24 random values in range from min temp
 	totalValue = 0
 	for i in range(0, numBatteries):
-		randomValue = random.uniform(minRandTemp,minRandTemp+randomRange)
+		randomValue = random.uniform(minRandTemp, minRandTemp + randomRange)
 		tempValues.append(float(randomValue))
 		totalValue = totalValue + randomValue
 
-	averageTemp = totalValue/numBatteries
+	averageTemp = totalValue / numBatteries
 
 	if averageTemp > maxTemp:
 		fansOn = True
 		pastMax = True
-		GPIO.output(outputPin,GPIO.HIGH)
-		minRandTemp = minRandTemp-1
+		GPIO.output(outputPin, GPIO.HIGH)
+		minRandTemp = minRandTemp - 1
 		
 	elif pastMax == True and averageTemp > safeTemp:
                 fansOn = True;
-                GPIO.output(outputPin,GPIO.HIGH)
-                minRandTemp = minRandTemp-1
+                GPIO.output(outputPin, GPIO.HIGH)
+                minRandTemp = minRandTemp - 1
 	
 	else:
 		fansOn = False
@@ -63,7 +63,11 @@ while True:
 	print "fans on = "+"%r" % (fansOn)
 	sleep(1)
 
-# Note that this module is unsuitable for real-time or timing critical applications. This is because you can not predict when Python will be busy garbage collecting. It also runs under the Linux kernel which is not suitable for real time applications - it is multitasking O/S and another process may be given priority over the CPU, causing jitter in your program. If you are after true real-time performance and predictability, buy yourself an Arduino http://www.arduino.cc !
+# Note that this module is unsuitable for real-time or timing critical applications. 
+# This is because you can not predict when Python will be busy garbage collecting.
+# It also runs under the Linux kernel which is not suitable for real time applications 
+# it is multitasking O/S and another process may be given priority over the CPU, causing jitter in your program. 
+# If you are after true real-time performance and predictability, buy yourself an Arduino http://www.arduino.cc !
 
 # If GPIO isn't working
 # sudo apt-get update
